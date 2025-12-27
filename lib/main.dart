@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_bloc/app_bloc_observer.dart';
 import 'package:login_bloc/bloc/auth_bloc.dart';
 import 'package:login_bloc/login_screan.dart';
-import 'package:login_bloc/pallet.dart';
+import 'package:login_bloc/colors.dart';
 
 void main() {
   Bloc.observer = AppBlocObserver();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: Pallete.backgroundColor,
+          scaffoldBackgroundColor: colors.backgroundColor,
         ),
         home: const LoginScreen(),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_bloc/pallet.dart';
+import 'package:login_bloc/colors.dart';
 
 class SocialButton extends StatelessWidget {
   final IconData icon;
@@ -16,10 +16,10 @@ class SocialButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: () {},
-      icon: Icon(icon, size: 25, color: Pallete.whiteColor),
+      icon: Icon(icon, size: 25, color: colors.whiteColor),
       label: Text(
         label,
-        style: const TextStyle(color: Pallete.whiteColor, fontSize: 17),
+        style: const TextStyle(color: colors.whiteColor, fontSize: 17),
       ),
       style: TextButton.styleFrom(
         padding: EdgeInsets.symmetric(
@@ -27,7 +27,7 @@ class SocialButton extends StatelessWidget {
           horizontal: horizontalPadding,
         ),
         shape: RoundedRectangleBorder(
-          side: BorderSide(color: Pallete.borderColor, width: 3),
+          side: BorderSide(color: colors.borderColor, width: 3),
           borderRadius: BorderRadius.circular(10),
         ),
       ),
