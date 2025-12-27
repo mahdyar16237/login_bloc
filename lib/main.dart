@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_bloc/app_bloc_observer.dart';
 import 'package:login_bloc/bloc/auth_bloc.dart';
-import 'package:login_bloc/login_screan.dart';
+import 'package:login_bloc/login_screen.dart';
 import 'package:login_bloc/colors.dart';
 
 void main() {

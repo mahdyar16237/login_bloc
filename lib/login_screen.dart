@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_bloc/bloc/auth_bloc.dart';
-import 'package:login_bloc/home_screan.dart';
+import 'package:login_bloc/home_screen.dart';
 import 'package:login_bloc/widget/gradient_button.dart';
 import 'package:login_bloc/widget/login_field.dart';
 import 'package:login_bloc/widget/social_button.dart';
@@ -18,17 +18,25 @@ class _LoginScreenState extends State<LoginScreen> {
   final passwordController = TextEditingController();
 
   @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthFailure) {
+            ScaffoldMessenger.of(context).clearSnackBars();
             ScaffoldMessenger.of(
               context,
             ).showSnackBar(SnackBar(content: Text(state.error)));
           }
 
-          if (state is AuthSuccess) {
+          if (mounted && state is AuthSuccess) {
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => const HomeScreen()),
@@ -40,6 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
           if (state is AuthLoading) {
             return const Center(child: CircularProgressIndicator());
           }
+
           return SingleChildScrollView(
             child: Center(
               child: Column(
